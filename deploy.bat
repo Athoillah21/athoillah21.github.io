@@ -28,11 +28,11 @@ echo.
 echo Committing changes...
 git commit -m "Deploy portfolio - %timestamp%"
 
-REM Push to main branch
+REM Push to main branch (force push to overwrite)
 echo.
 echo Pushing to GitHub...
 git branch -M main
-git push -u origin main
+git push -u origin main --force
 
 echo.
 echo ========================================
