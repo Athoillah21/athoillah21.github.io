@@ -29,6 +29,36 @@
       "githubUrl": "https://github.com/Athoillah21/DBaaS-Project",
       "mediumUrl": "https://medium.com/@muhammadathoillah62/building-postgresql-database-as-a-service-dbaas-platform-for-automated-database-management-and-61a8abb06978",
       "status": "published"
+    },
+    {
+      "id": "project-mjjrhr34",
+      "title": "Athoillah-Portofolio",
+      "description": "Athoillah portofolio",
+      "image": "",
+      "imageText": "Athoillah",
+      "tags": [
+        "CSS",
+        "HTML",
+        "JavaScript"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/athoillah21.github.io",
+      "mediumUrl": "athoillah21.github.io",
+      "status": "published"
+    },
+    {
+      "id": "project-mjjrjnbs",
+      "title": "Firda-Portofolio",
+      "description": "My wife's portofolio web",
+      "image": "",
+      "imageText": "Firda",
+      "tags": [
+        "CSS",
+        "HTML",
+        "JavaScript"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/firda-repo",
+      "mediumUrl": "https://athoillah21.github.io/firda-repo/",
+      "status": "published"
     }
   ]
 }
