@@ -23,6 +23,39 @@
       pointer-events: none;
     }
 
+    /* Apple-style Glass Card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    }
+
+    @media (max-width: 640px) {
+      .glass-card {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+      }
+    }
+
     .fade-in {
       animation: fadeIn 0.8s ease-out forwards;
     }
@@ -49,39 +82,97 @@
       }
     }
 
+    /* Apple-style Glass Explore Button */
     .scroll-indicator {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
-      color: rgba(139, 92, 246, 0.5);
-      transition: all 0.3s ease;
+      gap: 0.875rem;
+      padding: 0.75rem 1.5rem 0.75rem 0.875rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .scroll-indicator:hover {
-      color: rgba(139, 92, 246, 0.9);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(168, 85, 247, 0.3);
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 32px rgba(168, 85, 247, 0.15),
+        0 4px 24px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
-    .scroll-indicator .line {
-      width: 1px;
-      height: 30px;
-      background: linear-gradient(to bottom, rgba(139, 92, 246, 0.5), transparent);
+    .scroll-indicator .icon-wrap {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.1));
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .scroll-indicator:hover .icon-wrap {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(236, 72, 153, 0.2));
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
     }
 
     .scroll-indicator .arrow {
+      color: #a855f7;
+      font-size: 1.25rem;
       animation: bounce-arrow 2s ease-in-out infinite;
+    }
+
+    .scroll-indicator .explore-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    .scroll-indicator .explore-label {
+      font-size: 0.625rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 400;
+    }
+
+    .scroll-indicator .explore-title {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: -0.01em;
+    }
+
+    .scroll-indicator:hover .explore-title {
+      color: #fff;
+    }
+
+    .scroll-indicator:hover .explore-label {
+      color: rgba(168, 85, 247, 0.7);
     }
 
     @keyframes bounce-arrow {
 
       0%,
       100% {
-        transform: translateY(0);
-        opacity: 0.5;
+        transform: translateY(-2px);
+        opacity: 0.8;
       }
 
       50% {
-        transform: translateY(4px);
+        transform: translateY(3px);
         opacity: 1;
       }
     }
@@ -159,29 +250,32 @@
       <div class="hero-glow"></div>
 
       <div class="container mx-auto text-center relative z-10 max-w-3xl">
-        <!-- Name -->
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-5 sm:mb-6 fade-in leading-tight">
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-red-400">Muhammad
-            Athoillah</span>
-        </h1>
+        <div class="glass-card">
+          <!-- Name -->
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-5 sm:mb-6 fade-in leading-tight">
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-red-400">Muhammad
+              Athoillah</span>
+          </h1>
 
-        <!-- Role -->
-        <p class="text-gray-300 text-base sm:text-lg md:text-xl mb-3 fade-in fade-in-delay-1 leading-relaxed">
-          <span class="text-white font-medium">Database Administrator</span> at Telkomsigma
-        </p>
-        <p class="text-gray-500 text-sm sm:text-base fade-in fade-in-delay-2 leading-relaxed px-4">
-          Specializing in PostgreSQL, High Availability & Performance Optimization
-        </p>
+          <!-- Role -->
+          <p class="text-gray-300 text-base sm:text-lg md:text-xl mb-3 fade-in fade-in-delay-1 leading-relaxed">
+            <span
+              class="font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">Database
+              Administrator</span> at Telkomsigma
+          </p>
+        </div>
       </div>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="pb-8 sm:pb-10 flex justify-center">
+    <!-- Explore Section -->
+    <div class="pb-10 sm:pb-14 flex justify-center">
       <a href="pages/about.html" class="scroll-indicator">
-        <span class="line"></span>
-        <span class="text-[10px] sm:text-xs tracking-[0.2em] uppercase font-light">Explore</span>
-        <span class="material-symbols-outlined arrow text-base">expand_more</span>
+        <div class="icon-wrap">
+          <span class="material-symbols-outlined arrow">expand_more</span>
+        </div>
+        <span class="explore-title">Explore More</span>
       </a>
     </div>
   </div>
