@@ -1,0 +1,740 @@
+/* Import Inter font for consistent typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global reset for margin, padding, and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Apply Inter font, with sans-serif as a fallback */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Ensure body and html take full height and hide overflow for the Spline background */
+body,
+html {
+  height: 100%;
+  /* Changed overflow from hidden to auto for the body to allow scrolling */
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Hide horizontal overflow */
+  scroll-behavior: smooth;
+  /* Enable smooth scrolling for anchor links and scrollIntoView */
+}
+
+/* Styles for the Spline 3D background container */
+.spline-container {
+  position: fixed;
+  /* Changed to fixed so it stays in place while content scrolls */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* Place it behind other content */
+}
+
+/* Styles for the content overlay, ensuring it's above the Spline background */
+.content-container {
+  position: relative;
+  /* Relative positioning to allow z-index to work */
+  z-index: 10;
+  /* Bring content to the front */
+  /* Removed height: 100vh and overflow-y: auto from here, as body handles scrolling now */
+}
+
+/* CSS variables for the Design System Cards */
+:root {
+  /* Increased card size values */
+  --card-size: clamp(300px, 30vw, 500px);
+  --card-ar: 4 / 3;
+  --x: calc(50vw * 1);
+  --y: calc(50vh * 1);
+  --spotlight: 50vmin;
+  --backdrop: rgba(11, 13, 17, 0.7);
+  --radius: 12;
+  --border: 1;
+  --backup-border: rgba(39, 46, 63, 0.5);
+  --size: 200;
+  --bg-spot-opacity: 0.1;
+  --border-light-opacity: 0.4;
+  --border-spot-opacity: 0.35;
+  --gap: 2rem;
+  --background: #090A0C;
+  /* Used for body background */
+  --surface: #101219;
+  /* Default surface for cards */
+  --surface-elevated: #161A23;
+  --surface-bright: #21263a;
+  --surface-hover: #2a3152;
+  --border-color: #272E3F;
+  --text-primary: rgba(235, 236, 240, 0.9);
+  --text-primary-bright: #ffffff;
+  --text-secondary: rgba(235, 236, 240, 0.5);
+  --text-tertiary: rgba(235, 236, 240, 0.3);
+  --accent-purple: #5E6AD2;
+  --accent-blue: #2E80F2;
+  --accent-green: #25B888;
+  --accent-yellow: #D9A71F;
+
+  /* Shiny CTA Button Variables */
+  --shiny-cta-bg: #000000;
+  --shiny-cta-bg-subtle: #1a1818;
+  --shiny-cta-fg: #ffffff;
+  --shiny-cta-highlight: #1d4ed8;
+  --shiny-cta-highlight-subtle: #8484ff;
+}
+
+/* Article layout for cards */
+article {
+  aspect-ratio: var(--card-ar);
+  border-radius: calc(var(--radius) * 1px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: var(--card-size);
+  height: 100%;
+  background-color: var(--surface);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+.card-header {
+  padding: 1.25rem 1.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.card-header .icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: var(--surface-elevated);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.card-header svg {
+  width: 22px;
+  height: 22px;
+  color: hsl(var(--hue) calc(var(--sat, 60) * 1%) 70%);
+  transition: all 0.3s ease;
+}
+
+.card-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: color 0.2s;
+}
+
+.card-content {
+  flex: 1;
+  padding: 0.25rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 0.75rem 0;
+  transition: background-color 0.3s ease;
+}
+
+.card-description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.stat {
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.stat-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  color: var(--text-primary);
+  background-color: var(--surface-elevated);
+  transition: color 0.2s;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.company {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* Grid container for the cards */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-size), 1fr));
+  /* Responsive columns */
+  gap: var(--gap);
+  justify-content: center;
+  /* Center items in the grid */
+  max-width: calc((var(--card-size) * 2) + var(--gap));
+  /* Max width for 2 cards + gap */
+  margin: 0 auto;
+  /* Center the grid container itself */
+  padding-bottom: 2rem;
+  /* Add some padding at the bottom */
+}
+
+.card-wrapper {
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+/* Section containing the cards */
+/* All sections now have a min-height and padding-top to ensure they are scrollable and clear the fixed nav */
+#projects-section,
+#client-companies-section,
+#contact-section {
+  width: 100%;
+  min-height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 6rem;
+}
+
+/* The main about section (hero) will be centered */
+#about-section {
+  width: 100%;
+  min-height: calc(100vh - 96px);
+  /* Full viewport height for landing page */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Center content vertically */
+  padding-top: 6rem;
+  /* Padding to push content below nav */
+  padding-bottom: 2rem;
+  /* Add some bottom padding */
+}
+
+/* Detailed about content container */
+#detailed-about-content {
+  display: flex;
+  /* Visible by default for scrolling */
+  width: 100%;
+  /* Take full width of parent */
+  flex-direction: column;
+  /* Arrange children vertically */
+  align-items: center;
+  /* Center children horizontally */
+}
+
+
+/* Glow specific styles */
+[data-glow] {
+  --border-size: calc(var(--border, 1) * 1px);
+  --spotlight-size: calc(var(--card-size) * 1.2);
+  --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+  background-image: radial-gradient(var(--spotlight-size) var(--spotlight-size) at var(--x) var(--y),
+      hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)), transparent);
+  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  border: var(--border-size) solid var(--backup-border);
+  position: relative;
+  touch-action: none;
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+[data-glow]::before,
+[data-glow]::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: calc(var(--border-size) * -1);
+  border: var(--border-size) solid transparent;
+  border-radius: calc(var(--radius) * 1px);
+  background-attachment: fixed;
+  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  mask:
+    linear-gradient(transparent, transparent),
+    linear-gradient(white, white);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+  transition: opacity 0.3s ease;
+}
+
+[data-glow]::before {
+  background-image: radial-gradient(calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at var(--x) var(--y),
+      hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 0.35)), transparent 100%);
+  filter: brightness(1.5);
+}
+
+[data-glow]::after {
+  background-image: radial-gradient(calc(var(--spotlight-size) * 0.4) calc(var(--spotlight-size) * 0.4) at var(--x) var(--y),
+      hsl(0 100% 100% / var(--border-light-opacity, 0.4)), transparent 100%);
+}
+
+/* Enhanced hover effect */
+[data-glow]:hover {
+  background-color: var(--surface-hover);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 20px 35px rgba(0, 0, 0, 0.3),
+    0 8px 40px 0 rgba(85, 110, 255, 0.25),
+    0 0 0 1px rgba(94, 106, 210, 0.6);
+  border-color: rgba(94, 106, 210, 0.7);
+  z-index: 10;
+}
+
+[data-glow]:hover::before {
+  opacity: 1.6;
+}
+
+[data-glow]:hover::after {
+  opacity: 1.2;
+}
+
+/* Brighten content on hover */
+[data-glow]:hover h2,
+[data-glow]:hover .stat-value {
+  color: var(--text-primary-bright);
+}
+
+[data-glow]:hover .company,
+[data-glow]:hover .card-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-glow]:hover .stat-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+[data-glow]:hover .divider {
+  background-color: rgba(94, 106, 210, 0.5);
+}
+
+[data-glow]:hover .icon {
+  background-color: rgba(94, 106, 210, 0.2);
+  box-shadow: 0 0 16px rgba(94, 106, 210, 0.3);
+}
+
+[data-glow]:hover svg {
+  transform: scale(1.15);
+}
+
+/* Specific card icon colors on hover */
+.project-card[data-glow] {
+  --base: 260;
+  /* Default base for project cards */
+  --sat: 80;
+}
+
+.project-card:nth-child(1) [data-glow] {
+  --base: 260;
+  /* A purple hue */
+  --sat: 80;
+}
+
+.project-card:nth-child(1) [data-glow]:hover .icon svg {
+  color: #8a94ff;
+}
+
+.project-card:nth-child(2) [data-glow] {
+  --base: 200;
+  /* A blue hue */
+  --sat: 80;
+}
+
+.project-card:nth-child(2) [data-glow]:hover .icon svg {
+  color: #69c3ff;
+}
+
+/* New project card specific glow color */
+.project-card:nth-child(3) [data-glow] {
+  --base: 150;
+  /* A green hue for the new card */
+  --sat: 80;
+}
+
+.project-card:nth-child(3) [data-glow]:hover .icon svg {
+  color: #5de4a9;
+}
+
+/* Styling for the new image logo */
+.icon img {
+  width: 100%;
+  /* Ensure image fills its container */
+  height: 100%;
+  /* Ensure image fills its container */
+  object-fit: contain;
+  /* Maintain aspect ratio and fit within bounds */
+  filter: grayscale(100%) brightness(150%);
+  /* Optional: add a subtle shadow */
+}
+
+/* Client Companies Section Specific Styles */
+#client-companies-section {
+  width: 100%;
+  min-height: calc(100vh - 96px);
+  /* Adjust height to account for nav */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* Align content to top */
+  padding: 6rem 1rem 2rem 1rem;
+  /* Top padding for nav, some bottom padding */
+  text-align: center;
+}
+
+#client-companies-section h2 {
+  font-size: 3rem;
+  /* Large heading */
+  font-weight: 600;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #ef4444;
+  /* red-500 */
+  --tw-gradient-to: #a855f7;
+  /* purple-500 */
+  margin-bottom: 3rem;
+  /* Space below heading */
+  letter-spacing: -0.025em;
+  /* Tighten letter spacing */
+}
+
+#client-companies-section .company-scroll-wrapper {
+  width: 100%;
+  overflow: hidden;
+  /* Hide scrollbar */
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#client-companies-section .company-scroll-container {
+  display: flex;
+  width: max-content;
+  /* Allow content to dictate width for scrolling */
+  animation: infinite-scroll 30s linear infinite;
+  /* Re-enable animation */
+}
+
+#client-companies-section .company-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* Keep this as it was for the infinite scroll setup */
+  gap: 2rem;
+  flex-shrink: 0;
+  padding: 0 1rem;
+}
+
+#client-companies-section .company-card {
+  /* Inherit glow properties */
+  background-color: var(--surface);
+  border-radius: calc(var(--radius) * 1px);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  /* Reverted padding for smaller cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  /* Reverted width for smaller cards */
+  height: 100px;
+  /* Reverted height for smaller cards */
+  /* Remove explicit box-shadow and transition, data-glow handles it */
+}
+
+/* Set base and saturation for the client company cards glow */
+#client-companies-section .company-card[data-glow] {
+  --base: 240;
+  /* A blue hue for client cards */
+  --sat: 80;
+}
+
+#client-companies-section .company-card img {
+  max-width: 80%;
+  /* Ensure logo fits within card */
+  max-height: 80%;
+  /* Ensure logo fits within card */
+  object-fit: contain;
+  filter: grayscale(100%) brightness(150%);
+  /* Make logos grayscale and brighter for dark theme */
+  transition: filter 0.2s ease-in-out;
+}
+
+#client-companies-section .company-card:hover img {
+  filter: grayscale(0%) brightness(100%);
+  /* Colorize on hover */
+}
+
+/* Keyframes for the infinite scroll animation */
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+  /* Scroll half the content width to loop seamlessly */
+}
+
+/* Specific styles for the Contact Form */
+#contact-section .contact-form-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  background-color: var(--surface);
+  border-radius: calc(var(--radius) * 1px);
+  backdrop-filter: blur(8px);
+  border: var(--border-size) solid var(--backup-border);
+  position: relative;
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+#contact-section .contact-form-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+#contact-section .contact-form-container input,
+#contact-section .contact-form-container textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#contact-section .contact-form-container input:focus,
+#contact-section .contact-form-container textarea:focus {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 2px rgba(94, 106, 210, 0.5);
+}
+
+#contact-section .contact-form-container textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Shiny CTA Button Styles */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --gradient-angle-offset {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --gradient-percent {
+  syntax: "<percentage>";
+  initial-value: 20%;
+  inherits: false;
+}
+
+@property --gradient-shine {
+  syntax: "<color>";
+  initial-value: #8484ff;
+  inherits: false;
+}
+
+.shiny-cta {
+  --gradient-angle: 0deg;
+  --gradient-angle-offset: 0deg;
+  --gradient-percent: 20%;
+  --gradient-shine: var(--shiny-cta-highlight-subtle);
+  --shadow-size: 2px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--shiny-cta-fg);
+  background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+    conic-gradient(from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+      transparent 0%,
+      var(--shiny-cta-highlight) 5%,
+      var(--gradient-shine) 15%,
+      var(--shiny-cta-highlight) 30%,
+      transparent 40%,
+      transparent 100%) border-box;
+  border: 2px solid transparent;
+  box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
+  outline: none;
+  transition:
+    --gradient-angle-offset 800ms cubic-bezier(0.25, 1, 0.5, 1),
+    --gradient-percent 800ms cubic-bezier(0.25, 1, 0.5, 1),
+    --gradient-shine 800ms cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.3s;
+  cursor: pointer;
+  isolation: isolate;
+  outline-offset: 4px;
+  font-family: inherit;
+  z-index: 0;
+  animation: border-spin 2.5s linear infinite;
+  width: 100%;
+  /* Ensure it takes full width of its container */
+  box-sizing: border-box;
+  /* Include padding and border in the element's total width and height */
+}
+
+@keyframes border-spin {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+.shiny-cta:active {
+  transform: translateY(1px);
+}
+
+.shiny-cta::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  --size: calc(100% - 6px);
+  --position: 2px;
+  --space: 4px;
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle at var(--position) var(--position), white 0.5px, transparent 0) padding-box;
+  background-size: var(--space) var(--space);
+  background-repeat: space;
+  mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg),
+      black,
+      transparent 10% 90%,
+      black);
+  border-radius: inherit;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.shiny-cta::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(-50deg, transparent, var(--shiny-cta-highlight), transparent);
+  mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+  opacity: 0.6;
+  animation: shimmer 4s linear infinite;
+  animation-play-state: running;
+}
+
+.shiny-cta span {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+}
+
+.shiny-cta span::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  --size: calc(100% + 1rem);
+  width: var(--size);
+  height: var(--size);
+  box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 800ms cubic-bezier(0.25, 1, 0.5, 1);
+  animation: breathe 4.5s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.20);
+  }
+}

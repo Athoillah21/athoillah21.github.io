@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Athoillah's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/loader.css">
+</head>
+
+<body class="bg-black text-white">
+    <!-- Galaxy Loading Screen -->
+    <div id="galaxy-loader">
+        <div class="galaxy-core"></div>
+        <div class="galaxy-ring"></div>
+        <div class="galaxy-ring"></div>
+        <div class="galaxy-ring"></div>
+        <div class="galaxy-ring"></div>
+        <div class="galaxy-ring"></div>
+    </div>
+
+    <div class="spline-container">
+        <iframe src='https://my.spline.design/claritystream-a72K0KUwFoZV82QBzvu52Kai/' frameborder='0' width='100%'
+            height='100%'></iframe>
+    </div>
+
+    <div class="content-container">
+        <!-- Navigation -->
+        <nav class="container mx-auto px-4 sm:px-6 py-4 sm:py-6 sticky top-0 bg-black/90 backdrop-blur-md z-20">
+            <div class="flex items-center justify-between w-full">
+                <div class="flex items-center">
+                    <svg class="h-6 w-6 sm:h-7 sm:w-7 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z">
+                        </path>
+                    </svg>
+                    <a href="../index.html"
+                        class="ml-2 sm:ml-3 text-base sm:text-lg tracking-tight cursor-pointer hover:text-white transition-colors">Athoillah</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8 lg:space-x-10 text-sm text-gray-400">
+                    <a href="about.html" class="hover:text-white transition-colors">About</a>
+                    <a href="projects.html" class="text-white">Projects</a>
+                    <a href="clients.html" class="hover:text-white transition-colors">Clients</a>
+                    <a href="contact.html"
+                        class="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-full transition-colors">Contact</a>
+                </div>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                    class="md:hidden text-gray-400 hover:text-white p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden flex flex-col gap-2 pt-4 md:hidden">
+                <a href="about.html" class="text-gray-400 hover:text-white py-2 px-2">About</a>
+                <a href="projects.html" class="text-white py-2 px-2">Projects</a>
+                <a href="clients.html" class="text-gray-400 hover:text-white py-2 px-2">Clients</a>
+                <a href="contact.html" class="text-gray-400 hover:text-white py-2 px-2">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Projects Content -->
+        <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+            <h1
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-8 sm:mb-10 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-purple-400 text-center">
+                My Projects
+            </h1>
+
+            <!-- Admin Panel (hidden by default) -->
+            <div id="admin-panel" class="hidden mb-8 flex flex-wrap gap-4 justify-center">
+                <button onclick="ProjectsManager.openModal()"
+                    class="bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors">
+                    <span class="material-symbols-outlined">add</span>
+                    Add Project
+                </button>
+                <button onclick="ProjectsManager.exportJSON()"
+                    class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors">
+                    <span class="material-symbols-outlined">download</span>
+                    Export JSON
+                </button>
+            </div>
+
+            <!-- Projects Container (dynamically populated) -->
+            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Projects will be loaded here by JavaScript -->
+                <div class="col-span-2 text-center text-gray-400">
+                    <span class="material-symbols-outlined animate-spin text-4xl">refresh</span>
+                    <p class="mt-2">Loading projects...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add/Edit Project Modal -->
+        <div id="project-modal"
+            class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div class="bg-gray-900 border border-gray-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+                <div class="p-6 border-b border-gray-800 flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-white">Add New Project</h2>
+                    <button onclick="ProjectsManager.closeModal()" class="text-gray-400 hover:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <form id="project-form" class="p-6 space-y-6">
+                    <input type="hidden" id="project-id" name="id">
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Title *</label>
+                        <input type="text" name="title" required
+                            class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                            placeholder="Project name">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Description *</label>
+                        <textarea name="description" required rows="3"
+                            class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                            placeholder="Brief description of the project"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Image URL</label>
+                            <input type="url" name="image"
+                                class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                                placeholder="https://...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Fallback Text</label>
+                            <input type="text" name="imageText"
+                                class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                                placeholder="Text if no image">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">GitHub URL</label>
+                        <input type="url" name="githubUrl"
+                            class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                            placeholder="https://github.com/...">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Medium/Article URL</label>
+                        <input type="url" name="mediumUrl"
+                            class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                            placeholder="https://medium.com/...">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Tags (comma-separated) *</label>
+                        <input type="text" name="tags" required
+                            class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                            placeholder="Python, Flask, PostgreSQL">
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <button type="button" onclick="ProjectsManager.saveProject(true)"
+                            class="flex-1 bg-yellow-600 hover:bg-yellow-500 text-black font-medium px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-xl">draft</span>
+                            Save as Draft
+                        </button>
+                        <button type="button" onclick="ProjectsManager.saveProject(false)"
+                            class="flex-1 bg-purple-600 hover:bg-purple-500 text-white font-medium px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-xl">save</span>
+                            Publish
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w-full bg-black bg-opacity-90 py-8 mt-16 border-t border-gray-800">
+            <div class="container mx-auto px-6 flex flex-col items-center text-center">
+                <p class="text-sm text-gray-400 mb-4">© 2025 Muhammad Atho'illah. All rights reserved.</p>
+                <div class="flex space-x-6 text-gray-400">
+                    <a href="https://linkedin.com/in/muhammadathoillah" target="_blank"
+                        class="hover:text-white transition-colors">LinkedIn</a>
+                    <a href="https://github.com/Athoillah21" target="_blank"
+                        class="hover:text-white transition-colors">GitHub</a>
+                    <a href="https://twitter.com/your_twitter_profile" target="_blank"
+                        class="hover:text-white transition-colors">Twitter</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/projects-manager.js"></script>
+    <script src="../assets/js/loader.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Athoillah's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/loader.css">
+</head>
+
+<body class="bg-black text-white">
+    <!-- Galaxy Loading Screen -->
+    <div id="galaxy-loader">
+        <div class="galaxy-core"></div>
+        <div class="galaxy-ring"></div>
+        <div class="galaxy-ring"></div>
+        <div class="galaxy-ring"></div>
+        <div class="galaxy-ring"></div>
+        <div class="galaxy-ring"></div>
+    </div>
+
+    <div class="spline-container">
+        <iframe src='https://my.spline.design/claritystream-a72K0KUwFoZV82QBzvu52Kai/' frameborder='0' width='100%'
+            height='100%'></iframe>
+    </div>
+
+    <div class="content-container">
+        <!-- Navigation -->
+        <nav class="container mx-auto px-4 sm:px-6 py-4 sm:py-6 sticky top-0 bg-black/90 backdrop-blur-md z-20">
+            <div class="flex items-center justify-between w-full">
+                <div class="flex items-center">
+                    <svg class="h-6 w-6 sm:h-7 sm:w-7 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z">
+                        </path>
+                    </svg>
+                    <a href="../index.html"
+                        class="ml-2 sm:ml-3 text-base sm:text-lg tracking-tight cursor-pointer hover:text-white transition-colors">Athoillah</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8 lg:space-x-10 text-sm text-gray-400">
+                    <a href="about.html" class="hover:text-white transition-colors">About</a>
+                    <a href="projects.html" class="hover:text-white transition-colors">Projects</a>
+                    <a href="clients.html" class="hover:text-white transition-colors">Clients</a>
+                    <a href="contact.html"
+                        class="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-full transition-colors">Contact</a>
+                </div>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                    class="md:hidden text-gray-400 hover:text-white p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden flex flex-col gap-2 pt-4 md:hidden">
+                <a href="about.html" class="text-gray-400 hover:text-white py-2 px-2">About</a>
+                <a href="projects.html" class="text-gray-400 hover:text-white py-2 px-2">Project</a>
+                <a href="clients.html" class="text-gray-400 hover:text-white py-2 px-2">Client</a>
+                <a href="contact.html" class="text-white py-2 px-2">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Contact Content -->
+        <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col items-center"
+            style="min-height: calc(100vh - 200px);">
+            <h1
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-purple-400 text-center">
+                Get in Touch
+            </h1>
+            <p class="text-gray-400 text-center max-w-xl mx-auto mb-8 sm:mb-10 text-sm sm:text-base px-4">
+                Have a project in mind or want to discuss database solutions? I'd love to hear from you.
+            </p>
+
+            <div class="w-full max-w-xl">
+                <div class="bg-gray-900 bg-opacity-80 rounded-xl border border-gray-800 p-8 backdrop-blur-sm" data-glow
+                    style="--base: 270; --sat: 80;">
+                    <form action="mailto:muhammadathoillah62@gmail.com" enctype="text/plain">
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-colors"
+                                placeholder="Your name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-colors"
+                                placeholder="your.email@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-colors"
+                                placeholder="What's this about?">
+                        </div>
+                        <div class="mb-8">
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-colors resize-none"
+                                placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="shiny-cta w-full">
+                            <span class="flex items-center justify-center">
+                                <span class="material-symbols-outlined mr-2">send</span>
+                                Send Message
+                            </span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="mt-12 flex flex-col md:flex-row justify-center items-center gap-8 text-gray-400">
+                    <a href="mailto:muhammadathoillah62@gmail.com"
+                        class="flex items-center hover:text-white transition-colors">
+                        <span class="material-symbols-outlined mr-2 text-purple-400">mail</span>
+                        muhammadathoillah62@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/muhammadathoillah" target="_blank"
+                        class="flex items-center hover:text-white transition-colors">
+                        <i class="fab fa-linkedin mr-2 text-purple-400"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/Athoillah21" target="_blank"
+                        class="flex items-center hover:text-white transition-colors">
+                        <i class="fab fa-github mr-2 text-purple-400"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w-full bg-black bg-opacity-90 py-8 border-t border-gray-800">
+            <div class="container mx-auto px-6 flex flex-col items-center text-center">
+                <p class="text-sm text-gray-400 mb-4">© 2025 Muhammad Atho'illah. All rights reserved.</p>
+                <div class="flex space-x-6 text-gray-400">
+                    <a href="https://linkedin.com/in/muhammadathoillah" target="_blank"
+                        class="hover:text-white transition-colors">LinkedIn</a>
+                    <a href="https://github.com/Athoillah21" target="_blank"
+                        class="hover:text-white transition-colors">GitHub</a>
+                    <a href="https://twitter.com/your_twitter_profile" target="_blank"
+                        class="hover:text-white transition-colors">Twitter</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/loader.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+{
+  "projects": [
+    {
+      "id": "pg-growth",
+      "title": "pg_growth",
+      "description": "PostgreSQL extension to provide snapshot of database size growth, available in daily and hourly intervals.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Postgresql_elephant.svg",
+      "tags": [
+        "PostgreSQL",
+        "C Programming",
+        "Extension Dev"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/DBaaS-Project",
+      "mediumUrl": "https://medium.com/@muhammadathoillah62/building-postgresql-database-as-a-service-dbaas-platform-for-automated-database-management-and-61a8abb06978",
+      "status": "published"
+    },
+    {
+      "id": "simple-dbaas",
+      "title": "Simple DBaaS",
+      "description": "A Database-as-a-Service application developed using Flask, deployed on Amazon EC2. Provides web-based interface for database management.",
+      "image": "",
+      "imageText": "DBaaS",
+      "tags": [
+        "Flask",
+        "Python",
+        "AWS EC2",
+        "PostgreSQL"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/DBaaS-Project",
+      "mediumUrl": "https://medium.com/@muhammadathoillah62/building-postgresql-database-as-a-service-dbaas-platform-for-automated-database-management-and-61a8abb06978",
+      "status": "published"
+    }
+  ]
+}
