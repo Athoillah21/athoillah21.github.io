@@ -60,6 +60,36 @@
       "githubUrl": "https://github.com/Athoillah21/firda-repo",
       "mediumUrl": "https://athoillah21.github.io/firda-repo/",
       "status": "published"
+    },
+    {
+      "id": "project-mjlf9fmh",
+      "title": "PostgreSQL Healthcheck - Email Alerts",
+      "description": "Automated database health monitoring script that performs comprehensive PostgreSQL analysis and delivers detailed HTML reports via SMTP email. Supports customizable connection parameters for single database inspection.",
+      "image": "",
+      "icon": "mail",
+      "tags": [
+        "Shell Script",
+        "HTML Report",
+        "SMTP Email"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Healthcheck_PostgreSQL_to_Email",
+      "mediumUrl": "https://github.com/Athoillah21/Healthcheck_PostgreSQL_to_Email",
+      "status": "published"
+    },
+    {
+      "id": "project-mjlfdbld",
+      "title": "PostgreSQL Healthcheck - Telegram Bot",
+      "description": "Python-powered database monitoring tool that executes health diagnostics on PostgreSQL instances and sends real-time alerts via Telegram Bot API. Features interactive reporting and customizable database connection settings.",
+      "image": "",
+      "icon": "send",
+      "tags": [
+        "Python",
+        "Telegram API",
+        "HTML Report"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
+      "mediumUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
+      "status": "published"
     }
   ]
 }
