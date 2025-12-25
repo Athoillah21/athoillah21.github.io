@@ -59,6 +59,11 @@ const ProjectsManager = {
         }
 
         container.innerHTML = allProjects.map(project => this.renderProjectCard(project)).join('');
+
+        // Initialize Lucide icons after rendering
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
     },
 
     // Render a single project card
@@ -68,9 +73,15 @@ const ProjectsManager = {
             `<span class="px-3 py-1 rounded-full text-xs font-medium bg-purple-900/50 text-purple-300 border border-purple-700/50">${tag}</span>`
         ).join('');
 
-        const imageSection = project.image
-            ? `<img src="${project.image}" alt="${project.title}" class="h-full w-auto object-contain" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\\'text-4xl font-bold text-purple-400\\'>${project.imageText || project.title}</div>'">`
-            : `<div class="text-4xl font-bold text-purple-400">${project.imageText || project.title}</div>`;
+        // Determine image section content
+        let imageSection;
+        if (project.image) {
+            imageSection = `<img src="${project.image}" alt="${project.title}" class="h-full w-auto object-contain" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\\'text-4xl font-bold text-purple-400\\'>${project.imageText || project.title}</div>'">`;
+        } else if (project.icon) {
+            imageSection = `<i data-lucide="${project.icon}" class="w-20 h-20 text-purple-400"></i>`;
+        } else {
+            imageSection = `<div class="text-4xl font-bold text-purple-400">${project.imageText || project.title}</div>`;
+        }
 
         return `
             <div class="bg-gray-900 bg-opacity-80 rounded-xl border ${isDraft ? 'border-yellow-600' : 'border-gray-800'} overflow-hidden backdrop-blur-sm hover:transform hover:scale-[1.02] transition-all duration-300 relative"

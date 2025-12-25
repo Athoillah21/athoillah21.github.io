@@ -4,7 +4,8 @@
       "id": "pg-growth",
       "title": "pg_growth",
       "description": "PostgreSQL extension to provide snapshot of database size growth, available in daily and hourly intervals.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Postgresql_elephant.svg",
+      "image": "",
+      "icon": "database",
       "tags": [
         "PostgreSQL",
         "C Programming",
@@ -19,7 +20,7 @@
       "title": "Simple DBaaS",
       "description": "A Database-as-a-Service application developed using Flask, deployed on Amazon EC2. Provides web-based interface for database management.",
       "image": "",
-      "imageText": "DBaaS",
+      "icon": "cloud",
       "tags": [
         "Flask",
         "Python",
@@ -33,24 +34,24 @@
     {
       "id": "project-mjjrhr34",
       "title": "Athoillah-Portofolio",
-      "description": "Athoillah portofolio",
+      "description": "Personal portfolio website showcasing projects and professional experience.",
       "image": "",
-      "imageText": "Athoillah",
+      "icon": "user",
       "tags": [
         "CSS",
         "HTML",
         "JavaScript"
       ],
       "githubUrl": "https://github.com/Athoillah21/athoillah21.github.io",
-      "mediumUrl": "athoillah21.github.io",
+      "mediumUrl": "https://athoillah21.github.io",
       "status": "published"
     },
     {
       "id": "project-mjjrjnbs",
       "title": "Firda-Portofolio",
-      "description": "My wife's portofolio web",
+      "description": "Portfolio website created for my wife featuring her work and achievements.",
       "image": "",
-      "imageText": "Firda",
+      "icon": "heart",
       "tags": [
         "CSS",
         "HTML",
