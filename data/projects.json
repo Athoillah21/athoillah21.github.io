@@ -90,6 +90,37 @@
       "githubUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
       "mediumUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
       "status": "published"
+    },
+    {
+      "id": "project-mjn2ojos",
+      "title": "Multi-DB Healthcheck Reporter",
+      "description": "Automated multi-database health monitoring solution for consolidation servers. Iterates through all configured PostgreSQL databases, performs comprehensive diagnostics, and generates unified HTML reports delivered via email.",
+      "image": "",
+      "icon": "server",
+      "tags": [
+        "Shell Script",
+        "HTML Output",
+        "PostgreSQL",
+        "Consolidation Server"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Healthcheck-Report-Consolidation-Server",
+      "mediumUrl": "https://athoillah21.github.io/Healthcheck-Report-Consolidation-Server/result/daily_health_check_report_sample.html",
+      "status": "published"
+    },
+    {
+      "id": "project-mjn2qlnk",
+      "title": "Liquid Glass DB Reporter",
+      "description": "Premium multi-database health monitoring with elegant liquid glass UI design. Features modern glassmorphism aesthetics, dynamic animations, and comprehensive PostgreSQL diagnostics across consolidation servers.",
+      "image": "",
+      "icon": "sparkles",
+      "tags": [
+        "Shell Script",
+        "HTML Report",
+        "Liquid Glass UI"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Healthcheck-Report-Liquid-Glass-Style",
+      "mediumUrl": "https://athoillah21.github.io/Healthcheck-Report-Liquid-Glass-Style/result/daily_handover_report_liquid_2025-12-25%20135116.html",
+      "status": "published"
     }
   ]
 }
