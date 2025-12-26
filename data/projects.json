@@ -9,7 +9,8 @@
       "tags": [
         "PostgreSQL",
         "C Programming",
-        "Extension Dev"
+        "Extension",
+        "Monitoring"
       ],
       "githubUrl": "https://github.com/Athoillah21/pg_growth",
       "mediumUrl": "https://medium.com/@muhammadathoillah62/pg-growth-crafting-my-first-postgresql-extension-42520cb6bb5a",
@@ -22,9 +23,9 @@
       "image": "",
       "icon": "cloud",
       "tags": [
-        "Flask",
         "Python",
-        "AWS EC2",
+        "Flask",
+        "AWS",
         "PostgreSQL"
       ],
       "githubUrl": "https://github.com/Athoillah21/DBaaS-Project",
@@ -38,9 +39,10 @@
       "image": "",
       "icon": "user",
       "tags": [
-        "CSS",
         "HTML",
-        "JavaScript"
+        "CSS",
+        "JavaScript",
+        "Tailwind"
       ],
       "githubUrl": "https://github.com/Athoillah21/athoillah21.github.io",
       "mediumUrl": "https://athoillah21.github.io",
@@ -53,9 +55,10 @@
       "image": "",
       "icon": "heart",
       "tags": [
-        "CSS",
         "HTML",
-        "JavaScript"
+        "CSS",
+        "JavaScript",
+        "Web Design"
       ],
       "githubUrl": "https://github.com/Athoillah21/firda-repo",
       "mediumUrl": "https://athoillah21.github.io/firda-repo/",
@@ -69,8 +72,9 @@
       "icon": "mail",
       "tags": [
         "Shell Script",
-        "HTML Report",
-        "SMTP Email"
+        "PostgreSQL",
+        "Email",
+        "Automation"
       ],
       "githubUrl": "https://github.com/Athoillah21/Healthcheck_PostgreSQL_to_Email",
       "mediumUrl": "https://github.com/Athoillah21/Healthcheck_PostgreSQL_to_Email",
@@ -84,8 +88,9 @@
       "icon": "send",
       "tags": [
         "Python",
-        "Telegram API",
-        "HTML Report"
+        "Telegram",
+        "Bot API",
+        "PostgreSQL"
       ],
       "githubUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
       "mediumUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
@@ -99,9 +104,9 @@
       "icon": "server",
       "tags": [
         "Shell Script",
-        "HTML Output",
         "PostgreSQL",
-        "Consolidation Server"
+        "Multi-DB",
+        "Reporting"
       ],
       "githubUrl": "https://github.com/Athoillah21/Healthcheck-Report-Consolidation-Server",
       "mediumUrl": "https://athoillah21.github.io/Healthcheck-Report-Consolidation-Server/result/daily_health_check_report_sample.html",
@@ -115,8 +120,9 @@
       "icon": "sparkles",
       "tags": [
         "Shell Script",
-        "HTML Report",
-        "Liquid Glass UI"
+        "Glassmorphism",
+        "UI Design",
+        "PostgreSQL"
       ],
       "githubUrl": "https://github.com/Athoillah21/Healthcheck-Report-Liquid-Glass-Style",
       "mediumUrl": "https://athoillah21.github.io/Healthcheck-Report-Liquid-Glass-Style/result/daily_handover_report_liquid_2025-12-25%20135116.html",
