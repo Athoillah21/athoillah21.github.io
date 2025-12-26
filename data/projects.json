@@ -3,7 +3,7 @@
     {
       "id": "pg-growth",
       "title": "pg_growth",
-      "description": "PostgreSQL extension to provide snapshot of database size growth, available in daily and hourly intervals.",
+      "description": "Custom PostgreSQL extension built in C that captures and tracks database size growth metrics. Provides daily and hourly snapshots for capacity planning, storage forecasting, and proactive infrastructure management.",
       "image": "",
       "icon": "database",
       "tags": [
@@ -14,6 +14,86 @@
       ],
       "githubUrl": "https://github.com/Athoillah21/pg_growth",
       "mediumUrl": "https://medium.com/@muhammadathoillah62/pg-growth-crafting-my-first-postgresql-extension-42520cb6bb5a",
+      "status": "published"
+    },
+    {
+      "id": "project-mjn4rhf2",
+      "title": "Barman Automate Report",
+      "description": "Automated Barman backup monitoring solution that scans multiple PostgreSQL backup servers, validates backup integrity, and generates consolidated HTML dashboards with color-coded status indicators. Scheduled reports delivered via email for proactive infrastructure oversight.",
+      "image": "",
+      "icon": "shield-check",
+      "tags": [
+        "Shell Script",
+        "Barman",
+        "Automation",
+        "Reporting"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Barman-Report",
+      "mediumUrl": "https://athoillah21.github.io/Barman-Report/results/barman_status_2025-12-26.html",
+      "status": "published"
+    },
+    {
+      "id": "project-mjn2qlnk",
+      "title": "Liquid Glass DB Reporter",
+      "description": "Premium multi-database health monitoring with elegant liquid glass UI design. Features modern glassmorphism aesthetics, dynamic animations, and comprehensive PostgreSQL diagnostics across consolidation servers.",
+      "image": "",
+      "icon": "sparkles",
+      "tags": [
+        "Shell Script",
+        "Glassmorphism",
+        "UI Design",
+        "PostgreSQL"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Healthcheck-Report-Liquid-Glass-Style",
+      "mediumUrl": "https://athoillah21.github.io/Healthcheck-Report-Liquid-Glass-Style/result/daily_handover_report_liquid_2025-12-25%20135116.html",
+      "status": "published"
+    },
+    {
+      "id": "project-mjn2ojos",
+      "title": "Multi-DB Healthcheck Reporter",
+      "description": "Automated multi-database health monitoring solution for consolidation servers. Iterates through all configured PostgreSQL databases, performs comprehensive diagnostics, and generates unified HTML reports delivered via email.",
+      "image": "",
+      "icon": "server",
+      "tags": [
+        "Shell Script",
+        "PostgreSQL",
+        "Multi-DB",
+        "Reporting"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Healthcheck-Report-Consolidation-Server",
+      "mediumUrl": "https://athoillah21.github.io/Healthcheck-Report-Consolidation-Server/result/daily_health_check_report_sample.html",
+      "status": "published"
+    },
+    {
+      "id": "project-mjlf9fmh",
+      "title": "PostgreSQL Healthcheck - Email Alerts",
+      "description": "Automated database health monitoring script that performs comprehensive PostgreSQL analysis and delivers detailed HTML reports via SMTP email. Supports customizable connection parameters for single database inspection.",
+      "image": "",
+      "icon": "mail",
+      "tags": [
+        "Shell Script",
+        "PostgreSQL",
+        "Email",
+        "Automation"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Healthcheck_PostgreSQL_to_Email",
+      "mediumUrl": "https://github.com/Athoillah21/Healthcheck_PostgreSQL_to_Email",
+      "status": "published"
+    },
+    {
+      "id": "project-mjlfdbld",
+      "title": "PostgreSQL Healthcheck - Telegram Bot",
+      "description": "Python-powered database monitoring tool that executes health diagnostics on PostgreSQL instances and sends real-time alerts via Telegram Bot API. Features interactive reporting and customizable database connection settings.",
+      "image": "",
+      "icon": "send",
+      "tags": [
+        "Python",
+        "Telegram",
+        "Bot API",
+        "PostgreSQL"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
+      "mediumUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
       "status": "published"
     },
     {
@@ -62,70 +142,6 @@
       ],
       "githubUrl": "https://github.com/Athoillah21/firda-repo",
       "mediumUrl": "https://athoillah21.github.io/firda-repo/",
-      "status": "published"
-    },
-    {
-      "id": "project-mjlf9fmh",
-      "title": "PostgreSQL Healthcheck - Email Alerts",
-      "description": "Automated database health monitoring script that performs comprehensive PostgreSQL analysis and delivers detailed HTML reports via SMTP email. Supports customizable connection parameters for single database inspection.",
-      "image": "",
-      "icon": "mail",
-      "tags": [
-        "Shell Script",
-        "PostgreSQL",
-        "Email",
-        "Automation"
-      ],
-      "githubUrl": "https://github.com/Athoillah21/Healthcheck_PostgreSQL_to_Email",
-      "mediumUrl": "https://github.com/Athoillah21/Healthcheck_PostgreSQL_to_Email",
-      "status": "published"
-    },
-    {
-      "id": "project-mjlfdbld",
-      "title": "PostgreSQL Healthcheck - Telegram Bot",
-      "description": "Python-powered database monitoring tool that executes health diagnostics on PostgreSQL instances and sends real-time alerts via Telegram Bot API. Features interactive reporting and customizable database connection settings.",
-      "image": "",
-      "icon": "send",
-      "tags": [
-        "Python",
-        "Telegram",
-        "Bot API",
-        "PostgreSQL"
-      ],
-      "githubUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
-      "mediumUrl": "https://github.com/Athoillah21/Telegram_Bot_for_Healthcheck_PostgreSQL",
-      "status": "published"
-    },
-    {
-      "id": "project-mjn2ojos",
-      "title": "Multi-DB Healthcheck Reporter",
-      "description": "Automated multi-database health monitoring solution for consolidation servers. Iterates through all configured PostgreSQL databases, performs comprehensive diagnostics, and generates unified HTML reports delivered via email.",
-      "image": "",
-      "icon": "server",
-      "tags": [
-        "Shell Script",
-        "PostgreSQL",
-        "Multi-DB",
-        "Reporting"
-      ],
-      "githubUrl": "https://github.com/Athoillah21/Healthcheck-Report-Consolidation-Server",
-      "mediumUrl": "https://athoillah21.github.io/Healthcheck-Report-Consolidation-Server/result/daily_health_check_report_sample.html",
-      "status": "published"
-    },
-    {
-      "id": "project-mjn2qlnk",
-      "title": "Liquid Glass DB Reporter",
-      "description": "Premium multi-database health monitoring with elegant liquid glass UI design. Features modern glassmorphism aesthetics, dynamic animations, and comprehensive PostgreSQL diagnostics across consolidation servers.",
-      "image": "",
-      "icon": "sparkles",
-      "tags": [
-        "Shell Script",
-        "Glassmorphism",
-        "UI Design",
-        "PostgreSQL"
-      ],
-      "githubUrl": "https://github.com/Athoillah21/Healthcheck-Report-Liquid-Glass-Style",
-      "mediumUrl": "https://athoillah21.github.io/Healthcheck-Report-Liquid-Glass-Style/result/daily_handover_report_liquid_2025-12-25%20135116.html",
       "status": "published"
     }
   ]
