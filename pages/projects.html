@@ -253,11 +253,18 @@
         function toggleSidebar() {
             const panel = document.getElementById('project-list-panel');
             const showBtn = document.getElementById('show-sidebar-btn');
+            const projectsWrapper = document.querySelector('.flex.gap-6');
 
             if (sidebarVisible) {
                 // Hide panel - slide out to left
                 panel.style.transform = 'translateX(-100%)';
                 panel.style.opacity = '0';
+
+                // After animation, collapse the panel width
+                setTimeout(() => {
+                    panel.style.width = '0';
+                    panel.style.marginRight = '-1.5rem'; // Remove the gap
+                }, 300);
 
                 // Show button - slide in from left
                 setTimeout(() => {
@@ -268,6 +275,10 @@
 
                 sidebarVisible = false;
             } else {
+                // Restore panel width first
+                panel.style.width = '18rem'; // w-72
+                panel.style.marginRight = '0';
+
                 // Hide button - slide out to left
                 showBtn.style.transform = 'translateX(-100%)';
                 showBtn.style.opacity = '0';
