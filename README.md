@@ -67,56 +67,106 @@ Edit `pages/about.html`:
 
 Projects are stored in `data/projects.json` and loaded dynamically.
 
-### Method 1: Using the Admin Panel (Recommended)
+### Project Data Structure
 
-1. **Open Admin Mode**:
-   ```
-   http://localhost:3000/pages/projects.html?admin=true
-   ```
+Each project object has the following fields:
 
-2. **Add a Project**:
-   - Click "Add Project" button
-   - Fill in the form:
-     - **Title** - Project name
-     - **Description** - Brief summary
-     - **Image URL** - Logo or screenshot URL
-     - **Fallback Text** - Text shown if no image
-     - **GitHub URL** - Repository link
-     - **Medium URL** - Article/demo link
-     - **Tags** - Comma-separated (e.g., `Python, Flask, PostgreSQL`)
-   - Click "Save as Draft" or "Publish"
+| Field | Required | Description |
+|-------|----------|-------------|
+| `id` | ✅ | Unique identifier (e.g., `pg-growth`, `project-abc123`) |
+| `title` | ✅ | Display name of the project |
+| `description` | ✅ | Brief summary of the project |
+| `image` | ❌ | URL to project image/screenshot |
+| `icon` | ❌ | Lucide icon name (e.g., `database`, `cloud`, `mail`) |
+| `imageText` | ❌ | Fallback text if no image/icon |
+| `tags` | ✅ | Array of technology tags |
+| `githubUrl` | ❌ | Link to GitHub repository |
+| `mediumUrl` | ❌ | Link to article, demo, or live site |
+| `status` | ✅ | Must be `"published"` to display |
 
-3. **Export & Deploy**:
-   - Click "Export JSON" → JSON copied to clipboard
-   - Paste into `data/projects.json`
-   - Commit and push to GitHub
+### Available Icons
 
-### Method 2: Edit JSON Directly
+Icons use the [Lucide](https://lucide.dev/icons) library. Popular choices:
+- `database`, `server`, `cloud`, `shield-check`
+- `mail`, `send`, `code`, `terminal`
+- `user`, `heart`, `sparkles`, `globe`
 
-Edit `data/projects.json`:
+---
+
+### ➕ How to Add a New Project
+
+**Method 1: Edit JSON Directly**
+
+1. Open `data/projects.json`
+2. Add a new project object at the desired position:
+
+```json
+{
+  "id": "my-new-project",
+  "title": "My New Project",
+  "description": "A brief description of what this project does.",
+  "image": "",
+  "icon": "code",
+  "tags": ["Python", "PostgreSQL", "Automation"],
+  "githubUrl": "https://github.com/username/repo",
+  "mediumUrl": "https://example.com/demo",
+  "status": "published"
+}
+```
+
+3. Save the file and refresh the projects page
+
+**Method 2: Using Admin Panel**
+
+1. Open `http://localhost:3000/pages/projects.html?admin=true`
+2. Click "Add Project" button
+3. Fill in the form and click "Publish"
+4. Click "Export JSON" to copy the updated data
+5. Paste into `data/projects.json`
+
+---
+
+### ❌ How to Delete a Project
+
+1. Open `data/projects.json`
+2. Find the project you want to delete
+3. Remove the entire project object (including the curly braces `{}`)
+4. Make sure there are no trailing commas after the last project
+5. Save and refresh
+
+**Example - Deleting a project:**
+
+Before:
 ```json
 {
   "projects": [
-    {
-      "id": "unique-id",
-      "title": "Project Title",
-      "description": "Brief description of the project",
-      "image": "https://example.com/image.png",
-      "imageText": "Fallback Text",
-      "tags": ["Tag1", "Tag2", "Tag3"],
-      "githubUrl": "https://github.com/...",
-      "mediumUrl": "https://medium.com/...",
-      "status": "published"
-    }
+    { "id": "project-1", ... },
+    { "id": "project-to-delete", ... },
+    { "id": "project-3", ... }
   ]
 }
 ```
 
-### Delete a Project
+After:
+```json
+{
+  "projects": [
+    { "id": "project-1", ... },
+    { "id": "project-3", ... }
+  ]
+}
+```
+
+---
+
+### 🔄 How to Reorder Projects
+
+Projects display in the order they appear in `data/projects.json`. To reorder:
 
 1. Open `data/projects.json`
-2. Remove the project object from the `projects` array
-3. Save and deploy
+2. Cut the project object you want to move
+3. Paste it at the desired position
+4. Save and refresh
 
 ---
 
