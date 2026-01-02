@@ -113,6 +113,22 @@
       "status": "published"
     },
     {
+      "id": "fhci-2022",
+      "title": "FHCI BUMN Job Data Scraper",
+      "description": "Automated web scraping solution using Python and Selenium to extract job listings from FHCI-BUMN portal. Features data cleaning, transformation, and statistical analysis for insights into BUMN recruitment trends.",
+      "image": "",
+      "icon": "file-search",
+      "tags": [
+        "Python",
+        "Selenium",
+        "Web Scraping",
+        "Data Analysis"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/Project-FHCI",
+      "mediumUrl": "https://www.linkedin.com/posts/muhammadathoillah_summary-fhcibumn-analysis-activity-7005568875777921025-iw4S?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD3zXusBryWQGgub165Z_Ew9jNwMt4NmncI",
+      "status": "published"
+    },
+    {
       "id": "project-mjjrhr34",
       "title": "Athoillah-Portofolio",
       "description": "Personal portfolio website showcasing projects and professional experience.",
