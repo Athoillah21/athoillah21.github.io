@@ -170,6 +170,65 @@ Projects display in the order they appear in `data/projects.json`. To reorder:
 
 ---
 
+## 📝 Notes Management
+
+Notes are stored in `data/notes.json` and managed through the Notes page.
+
+### ➕ Add a Note
+
+**Method 1: Using the UI**
+1. Go to `pages/notes.html`
+2. Click **"New Note"** button in sidebar
+3. Enter title and write content in Markdown
+4. Click **"Save"**
+5. Click **"Export JSON"** to copy data
+6. Paste into `data/notes.json` and commit
+
+**Method 2: Edit JSON Directly**
+
+Add to `data/notes.json`:
+```json
+{
+  "id": "note-unique-id",
+  "title": "My Note Title",
+  "content": "# Heading\n\nYour markdown content here...",
+  "createdAt": 1735908894000,
+  "updatedAt": 1735908894000
+}
+```
+
+### ✏️ Edit a Note
+
+1. Click on the note in the sidebar
+2. Click the **Edit** icon (pencil)
+3. Modify title or content
+4. Click **"Save"**
+5. Click **"Export JSON"** → paste into `data/notes.json`
+
+### ❌ Delete a Note
+
+1. Click on the note in the sidebar
+2. Click the **Delete** icon (trash)
+3. Confirm deletion
+4. Click **"Export JSON"** → paste into `data/notes.json`
+
+### 📤 Export Notes to Repository
+
+Notes are saved in browser localStorage by default. To save permanently:
+
+1. Click **"Export JSON"** in sidebar
+2. JSON is copied to clipboard
+3. Paste into `data/notes.json`
+4. Commit and push to GitHub
+
+### 📥 Import .txt/.md Files
+
+1. Click **"Import .txt/.md"** button
+2. Select a text or markdown file
+3. Note is created with filename as title
+
+---
+
 ### Add a Client Company
 Edit `pages/clients.html`, copy a client card:
 ```html
