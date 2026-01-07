@@ -17,6 +17,44 @@
       "status": "published"
     },
     {
+      "id": "project-mk42f1kn",
+      "title": "Tuning Buddy",
+      "description": "Intelligent PostgreSQL query optimization assistant powered by Gemini, DeepSeek, and Groq API. Built with Django and deployed on Vercel, it analyzes execution plans, identifies performance bottlenecks, and delivers expert-level tuning recommendations including index strategies, query rewrites, and configuration adjustments.",
+      "image": "",
+      "icon": "brain",
+      "imageText": "",
+      "tags": [
+        "Python",
+        "Django",
+        "Tuning Query",
+        "AI/ML",
+        "Gemini API",
+        "DeepSeek API",
+        "Groq API"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/tuning-buddy",
+      "mediumUrl": "https://tuning-buddy.vercel.app/",
+      "status": "published"
+    },
+    {
+      "id": "project-mk42ak22",
+      "title": "Capacity Planning Report",
+      "description": "Comprehensive infrastructure capacity analysis tool for EDB PostgreSQL. Generates visually rich HTML reports with CPU, Memory and Storage utilization trends.",
+      "image": "",
+      "icon": "bar-chart-3",
+      "imageText": "",
+      "tags": [
+        "Shell Script",
+        "HTML",
+        "Capacity Planning",
+        "Multi-Database",
+        "Multi-Server"
+      ],
+      "githubUrl": "https://github.com/Athoillah21/capacity_planning_report",
+      "mediumUrl": "https://athoillah21.github.io/capacity_planning_report/v6-postgresql/sample_postgresql_preview.html",
+      "status": "published"
+    },
+    {
       "id": "project-mjn4rhf2",
       "title": "Barman Automate Report",
       "description": "Automated Barman backup monitoring solution that scans multiple PostgreSQL backup servers, validates backup integrity, and generates consolidated HTML dashboards with color-coded status indicators. Scheduled reports delivered via email for proactive infrastructure oversight.",
